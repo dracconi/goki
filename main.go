@@ -76,7 +76,7 @@ func main() {
 
 			fmt.Printf(tim + "\n")
 			// fmt.Printf(url+tim+v.(map[string]interface {})["ext"].(string)+" \n "+split[3]+"/"+tim)
-			err := fetchImage(url+tim+v.(map[string]interface {})["ext"].(string),configuration.Output+"/"+name+split[3]+"/"+id+"/"+tim+v.(map[string]interface {})["ext"].(string))
+			err := fetchImage(url+tim+v.(map[string]interface {})["ext"].(string),configuration.Output+"/"+name+"/"+split[3]+"/"+id+"/"+tim+v.(map[string]interface {})["ext"].(string))
 			if err!=""{
 				panic(err)
 			}
