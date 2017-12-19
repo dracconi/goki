@@ -12,55 +12,6 @@ import (
 
 func main() {
 
-// type Post struct{
-// 	No            int    `json:"no"`
-// 	Sub           string `json:"sub,omitempty"`
-// 	Com           string `json:"com"`
-// 	Name          string `json:"name"`
-// 	Capcode       string `json:"capcode,omitempty"`
-// 	Time          int    `json:"time"`
-// 	OmittedPosts  int    `json:"omitted_posts,omitempty"`
-// 	OmittedImages int    `json:"omitted_images,omitempty"`
-// 	Sticky        int    `json:"sticky"`
-// 	Locked        int    `json:"locked"`
-// 	Cyclical      string `json:"cyclical"`
-// 	Bumplocked    string `json:"bumplocked"`
-// 	LastModified  int    `json:"last_modified"`
-// 	ID            string `json:"id"`
-// 	TnH           int    `json:"tn_h,omitempty"`
-// 	TnW           int    `json:"tn_w,omitempty"`
-// 	H             int    `json:"h,omitempty"`
-// 	W             int    `json:"w,omitempty"`
-// 	Fsize         int    `json:"fsize,omitempty"`
-// 	Filename      string `json:"filename,omitempty"`
-// 	Ext           string `json:"ext,omitempty"`
-// 	Tim           string `json:"tim,omitempty"`
-// 	Fpath         int    `json:"fpath,omitempty"`
-// 	Spoiler       int    `json:"spoiler,omitempty"`
-// 	Md5           string `json:"md5,omitempty"`
-// 	Resto         int    `json:"resto"`
-// 	Embed         string `json:"embed,omitempty"`
-// 	EmbedThumb    string `json:"embed_thumb,omitempty"`
-// 	Email         string `json:"email,omitempty"`
-// 	ExtraFiles    []struct {
-// 		TnH      int    `json:"tn_h"`
-// 		TnW      int    `json:"tn_w"`
-// 		H        int    `json:"h"`
-// 		W        int    `json:"w"`
-// 		Fsize    int    `json:"fsize"`
-// 		Filename string `json:"filename"`
-// 		Ext      string `json:"ext"`
-// 		Tim      string `json:"tim"`
-// 		Fpath    int    `json:"fpath"`
-// 		Spoiler  int    `json:"spoiler"`
-// 		Md5      string `json:"md5"`
-// 	} `json:"extra_files,omitempty"`
-// }
-
-// type Posts struct {
-// 	Posts []Post
-// }
-
 	type Configuration struct {
 		Links []string
 		Output string
@@ -102,8 +53,6 @@ func main() {
 		}
 
 		var posts map[string]interface{}
-		//httpdec := json.NewDecoder(resp.Body)
-		//httpdec.Decode(&posts)
 		json.Unmarshal(bodyBytes,&posts)
 
 		// fmt.Printf("%v", posts)
