@@ -3,30 +3,36 @@ package main
 import (
 	"net/http"
 	"os"
-	"strings"
+	//"strings"
 	"io"
 )
 
 func fetchImage(u string, p string) string{
-	resp, err := http.Get("https:"+u)
-	if err != nil {
-		return "get request"
-	}
-
-	defer resp.Body.Close()
-
-	pa := strings.Split(u,"/")
-
-	file, err := os.Create(p+"/"+pa[len(pa)-2]+"/"+pa[len(pa)-1])
+	resp, err := http.Get(u)
 	if err != nil {
 		panic(err)
 	}
 
-	_, err = io.Copy(file, resp.Body)
-	if err != nil {
-		return "file copy"
+	defer resp.Body.Close()
+
+	//pa := strings.Split(u,"/")
+
+	if _, err := os.Stat(p); os.IsNotExist(err) {
+		// path/to/whatever does not exist
+
+
+		file, err := os.Create(p)
+		if err != nil {
+			panic(err)
+		}
+
+		_, err = io.Copy(file, resp.Body)
+		if err != nil {
+			return "file copy"
+		}
+		file.Close()
 	}
-	file.Close()
+
 
 	return ""
 }

@@ -2,3 +2,4 @@ linux_compile.bat
 
 .idea/
 out/
+conf.json
