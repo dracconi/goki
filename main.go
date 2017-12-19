@@ -27,10 +27,6 @@ func main() {
 	for _, el := range configuration.Links {
 		split := strings.Split(el,"/")
 		id := strings.Split(split[len(split)-1],".")[0]
-
-		path := configuration.Output+"/"+name+split[3]+"/"+id
-		os.MkdirAll(path, os.ModePerm)
-
 		var endpoint,url,name string
 
 		switch split[2]{
@@ -41,6 +37,9 @@ func main() {
 			endpoint = "https://8ch.net/"+split[3]+"/res/"+strings.Split(split[len(split)-1],".")[0]+".json"
 			url,name = "https://media.8ch.net/file_store/", "8ch"
 		}
+
+		path := configuration.Output+"/"+name+split[3]+"/"+id
+		os.MkdirAll(path, os.ModePerm)
 
 		resp, err := http.Get(endpoint)
 		if err!=nil{
