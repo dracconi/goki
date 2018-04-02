@@ -5,3 +5,5 @@ out/
 conf.json
 goki.exe
 goki
+dist
+.goreleaser.yml
