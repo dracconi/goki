@@ -2,7 +2,7 @@ linux_compile.bat
 
 .idea/
 out/
-conf.json
+config.json
 goki.exe
 goki
 dist
